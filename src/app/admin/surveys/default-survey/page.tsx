@@ -69,13 +69,13 @@ export default function DefaultSurveyDetails() {
 
           <div className="mt-6 flex justify-between">
             <Link
-              href="/admin/surveys"
+              href="/admin"
               className="text-indigo-600 hover:text-indigo-800"
             >
-              Back to Surveys
+              Back to Dashboard
             </Link>
             <Link
-              href={`/surveys/default-survey`}
+              href={`/survey/default-survey`}
               target="_blank"
               className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >

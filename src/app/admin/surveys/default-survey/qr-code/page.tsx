@@ -19,7 +19,7 @@ export default function DefaultSurveyQRCode() {
   useEffect(() => {
     // Set the survey URL
     const baseUrl = window.location.origin;
-    setSurveyUrl(`${baseUrl}/surveys/default-survey`);
+    setSurveyUrl(`${baseUrl}/survey/default-survey`);
 
     // Simulate loading
     const timer = setTimeout(() => {
@@ -153,10 +153,10 @@ export default function DefaultSurveyQRCode() {
               <p className="text-sm text-gray-500">{defaultSurvey.title}</p>
             </div>
             <Link
-              href={`/admin/surveys/default-survey`}
+              href={`/admin`}
               className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              Back to Survey
+              Back to Dashboard
             </Link>
           </div>
 
@@ -295,7 +295,27 @@ export default function DefaultSurveyQRCode() {
                 </div>
                 <div className="mt-4 text-center">
                   <p className="text-sm text-gray-500 mb-1">Survey URL:</p>
-                  <p className="text-xs text-gray-700 break-all">{surveyUrl}</p>
+                  <div className="flex items-center justify-center mt-2">
+                    <div className="relative flex-grow max-w-md">
+                      <input
+                        type="text"
+                        value={surveyUrl}
+                        readOnly
+                        className="block w-full pr-10 border border-gray-300 rounded-md shadow-sm py-2 px-3 text-xs text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(surveyUrl);
+                          alert('URL copied to clipboard!');
+                        }}
+                        className="absolute inset-y-0 right-0 px-3 flex items-center bg-indigo-600 text-white rounded-r-md hover:bg-indigo-700 focus:outline-none"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
